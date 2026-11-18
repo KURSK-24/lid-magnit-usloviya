@@ -95,6 +95,40 @@ p+p{margin-top:12px}
 footer{padding:26px 0 40px;color:var(--soft);font-size:13px;text-align:center;border-top:1px solid var(--line)}
 @media(min-width:600px){h1{font-size:44px}h2{font-size:32px}}
 </style>
+<!-- Yandex.Metrika counter -->
+<script>
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ym(114342766, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+(function(){
+  function goal(n, p){ try{ ym(114342766, "reachGoal", n, p || {}); }catch(e){} }
+  function byUrl(u){
+    u = String(u || "");
+    if (/tribute|prodamus|payform|yookassa|yoomoney|robokassa|cloudpayments|getcourse/i.test(u)) return "klik_oplata";
+    if (/t\.me\/|telegram\./i.test(u)) return "klik_telegram";
+    if (/max\.ru/i.test(u)) return "klik_max";
+    if (/wa\.me|whatsapp/i.test(u)) return "klik_whatsapp";
+    if (/vk\.(com|me)\//i.test(u)) return "klik_vk";
+  }
+  var CH = {tg:"klik_telegram", telegram:"klik_telegram", max:"klik_max", wa:"klik_whatsapp", whatsapp:"klik_whatsapp", vk:"klik_vk"};
+  document.addEventListener("submit", function(){ goal("calc_submit"); }, true);
+  document.addEventListener("click", function(ev){
+    if (!ev.target.closest) return;
+    var b = ev.target.closest("[data-ch]");
+    if (b && CH[b.getAttribute("data-ch")]) { goal(CH[b.getAttribute("data-ch")]); return; }
+    var a = ev.target.closest("a[href]");
+    var g = a && byUrl(a.href);
+    if (g) goal(g, {url: a.href.slice(0, 200)});
+  }, true);
+  var wo = window.open;
+  window.open = function(u){ var g = byUrl(u); if (g) goal(g, {url: String(u).slice(0, 200)}); return wo.apply(window, arguments); };
+})();
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114342766" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <div class="bar"><i></i>Среда продаж · интерактивные лид-магниты</div>
@@ -110,7 +144,7 @@ footer{padding:26px 0 40px;color:var(--soft);font-size:13px;text-align:center;bo
 
 <section>
   <div class="wrap">
-    <div class="eb">Что происходит с вашим PDF</div>
+    <div class="eb" data-see="see_pdf">Что происходит с вашим PDF</div>
     <h2>Вы старались, а гайд <em>лежит в «Загрузках»</em></h2>
     <p>Вечерами выписывали самое ценное из метода, собирали PDF, снимали рилс, ставили кодовое слово. Люди пришли, нажали «скачать». И тишина</p>
     <div class="pain">
@@ -124,7 +158,7 @@ footer{padding:26px 0 40px;color:var(--soft);font-size:13px;text-align:center;bo
 
 <section class="stage">
   <div class="wrap">
-    <div class="eb">Что работает сейчас</div>
+    <div class="eb" data-see="see_rabotaet">Что работает сейчас</div>
     <h2>Человек вводит свои данные и получает <em>ответ про себя</em></h2>
     <p>Дату рождения, пару ответов, свою ситуацию. И через минуту видит результат лично про него. Такое открывают сразу и дочитывают до конца. А из ответа человек уже видит ваш подход и понимает, какую помощь получит дальше</p>
     <div class="stats">
@@ -138,7 +172,7 @@ footer{padding:26px 0 40px;color:var(--soft);font-size:13px;text-align:center;bo
 
 <section>
   <div class="wrap">
-    <div class="eb">Как мы делаем</div>
+    <div class="eb" data-see="see_kak">Как мы делаем</div>
     <h2>Лид-магнит не файл, а <em>начало воронки</em></h2>
     <ol class="steps">
       <li><h3>Смотрим рынок и вашу нишу</h3><span>Что люди ищут в Вордстате, что предлагают ваши коллеги, какие темы волнуют вашу аудиторию в этот сезон</span></li>
@@ -153,22 +187,22 @@ footer{padding:26px 0 40px;color:var(--soft);font-size:13px;text-align:center;bo
 
 <section style="background:var(--panel)">
   <div class="wrap">
-    <div class="eb">Собрали за один вечер</div>
+    <div class="eb" data-see="see_primery">Собрали за один вечер</div>
     <h2>Пять экспертов из комментариев, <em>пять разных механик</em></h2>
     <p>Это прототипы на материалах самих экспертов. Нажмите и пройдите сами</p>
     <div class="gal">
-      <a class="card" href="https://kursk-24.github.io/lm-proto-trevoga/" target="_blank" rel="noopener"><div class="shot"><img src="img/trevoga.jpg" alt="Тест на тип тревоги" loading="lazy"></div><div class="tx"><div class="who">Психолог КПТ · тест</div><h3>Какая у вас тревога</h3><p>Её же PDF «6 техник от тревожности», только живой: тип тревоги, своя техника, дыхание прямо на экране и прогрев к консультации</p><span class="go">Пройти ↗</span></div></a>
-      <a class="card" href="https://kursk-24.github.io/lm-proto-mak/" target="_blank" rel="noopener"><div class="shot"><img src="img/mak.jpg" alt="Метафорические карты" loading="lazy"></div><div class="tx"><div class="who">Психолог и таролог · колода</div><h3>Три карты о тебе</h3><p>Механику эксперт придумала сама в комментариях. Дальше карта дня в боте, расклады по подписке и консультация</p><span class="go">Открыть карты ↗</span></div></a>
-      <a class="card" href="https://kursk-24.github.io/lm-proto-foto/" target="_blank" rel="noopener"><div class="shot"><img src="img/foto.jpg" alt="Тест для фотографа" loading="lazy"></div><div class="tx"><div class="who">Фотограф · тест</div><h3>Нейросеть или живая съёмка</h3><p>Главный конкурент фотографа сейчас нейросеть. Тест честно говорит, где её хватит, и дарит 3 позы от модели</p><span class="go">Пройти ↗</span></div></a>
-      <a class="card" href="https://kursk-24.github.io/lm-proto-deti/" target="_blank" rel="noopener"><div class="shot"><img src="img/deti.jpg" alt="Переводчик с детского" loading="lazy"></div><div class="tx"><div class="who">Детский психолог · разговорник</div><h3>Переводчик с детского</h3><p>Родитель выбирает ситуацию и получает, что на самом деле говорит ребёнок и что сказать ему вместо привычного</p><span class="go">Попробовать ↗</span></div></a>
-      <a class="card" href="https://kursk-24.github.io/lm-proto-plavanie/" target="_blank" rel="noopener"><div class="shot"><img src="img/plavanie.jpg" alt="Конструктор плана" loading="lazy"></div><div class="tx"><div class="who">Тренер по плаванию · конструктор</div><h3>Мой план на 5 занятий</h3><p>Человек сам собирает себе план и отмечает пройденное. Такой план не лежит в «Загрузках», с ним возвращаются</p><span class="go">Собрать план ↗</span></div></a>
+      <a class="card" data-goal="klik_primer" href="https://kursk-24.github.io/lm-proto-trevoga/" target="_blank" rel="noopener"><div class="shot"><img src="img/trevoga.jpg" alt="Тест на тип тревоги" loading="lazy"></div><div class="tx"><div class="who">Психолог КПТ · тест</div><h3>Какая у вас тревога</h3><p>Её же PDF «6 техник от тревожности», только живой: тип тревоги, своя техника, дыхание прямо на экране и прогрев к консультации</p><span class="go">Пройти ↗</span></div></a>
+      <a class="card" data-goal="klik_primer" href="https://kursk-24.github.io/lm-proto-mak/" target="_blank" rel="noopener"><div class="shot"><img src="img/mak.jpg" alt="Метафорические карты" loading="lazy"></div><div class="tx"><div class="who">Психолог и таролог · колода</div><h3>Три карты о тебе</h3><p>Механику эксперт придумала сама в комментариях. Дальше карта дня в боте, расклады по подписке и консультация</p><span class="go">Открыть карты ↗</span></div></a>
+      <a class="card" data-goal="klik_primer" href="https://kursk-24.github.io/lm-proto-foto/" target="_blank" rel="noopener"><div class="shot"><img src="img/foto.jpg" alt="Тест для фотографа" loading="lazy"></div><div class="tx"><div class="who">Фотограф · тест</div><h3>Нейросеть или живая съёмка</h3><p>Главный конкурент фотографа сейчас нейросеть. Тест честно говорит, где её хватит, и дарит 3 позы от модели</p><span class="go">Пройти ↗</span></div></a>
+      <a class="card" data-goal="klik_primer" href="https://kursk-24.github.io/lm-proto-deti/" target="_blank" rel="noopener"><div class="shot"><img src="img/deti.jpg" alt="Переводчик с детского" loading="lazy"></div><div class="tx"><div class="who">Детский психолог · разговорник</div><h3>Переводчик с детского</h3><p>Родитель выбирает ситуацию и получает, что на самом деле говорит ребёнок и что сказать ему вместо привычного</p><span class="go">Попробовать ↗</span></div></a>
+      <a class="card" data-goal="klik_primer" href="https://kursk-24.github.io/lm-proto-plavanie/" target="_blank" rel="noopener"><div class="shot"><img src="img/plavanie.jpg" alt="Конструктор плана" loading="lazy"></div><div class="tx"><div class="who">Тренер по плаванию · конструктор</div><h3>Мой план на 5 занятий</h3><p>Человек сам собирает себе план и отмечает пройденное. Такой план не лежит в «Загрузках», с ним возвращаются</p><span class="go">Собрать план ↗</span></div></a>
     </div>
   </div>
 </section>
 
 <section class="stage">
   <div class="wrap">
-    <div class="eb">Работает без вас</div>
+    <div class="eb" data-see="see_keys">Работает без вас</div>
     <h2>Прогревает сам и <em>снимает бесплатные консультации</em></h2>
     <p>Бесплатный разбор забирает два часа вашего вечера и часто заканчивается «спасибо, подумаю». Лид-магнит отдаёт человеку пользу сам, а к вам приходят те, кто уже понял, зачем вы им нужны</p>
     <div class="case"><div class="eb" style="margin-bottom:8px">Кейс · таро</div><p>Мини-продукт по подписке в Telegram-боте. Первый вопрос человек задаёт бесплатно и получает расклад. Дальше может купить ещё один вопрос, пакет из трёх вопросов или подписку на месяц</p><p style="margin-top:14px;color:#cbbd9f">За первые две недели эксперт получил</p><span class="num">18 000 ₽</span><p style="margin-top:4px;color:#cbbd9f">на автомате, без своего участия</p></div>
@@ -177,7 +211,7 @@ footer{padding:26px 0 40px;color:var(--soft);font-size:13px;text-align:center;bo
 
 <section>
   <div class="wrap">
-    <div class="eb">Подбор за минуту</div>
+    <div class="eb" data-see="see_podbor">Подбор за минуту</div>
     <h2>Какой лид-магнит <em>нужен вам</em></h2>
     <div class="pick">
       <div class="lbl" style="margin-top:0">Ваша сфера</div>
@@ -194,20 +228,20 @@ footer{padding:26px 0 40px;color:var(--soft);font-size:13px;text-align:center;bo
 
 <section class="stage" id="tarify">
   <div class="wrap">
-    <div class="eb">Тарифы</div>
+    <div class="eb" data-see="see_tarify">Тарифы</div>
     <h2>Во всех трёх: анализ ниши, ваш метод, ваш стиль и <em>Яндекс Метрика</em></h2>
     <div class="tar" id="t1"><div class="nm">Старт<span class="badge">ваш вариант</span></div><h3>Лид-магнит</h3><div class="pr">9 900 ₽</div><div class="tm">2-3 вечера</div>
       <ul><li>тест, калькулятор или другая механика на своей ссылке</li><li>ваши фото, продукты и прайс внутри</li><li>результат про человека и кнопка записи к вам</li><li>Яндекс Метрика</li></ul>
       <p class="for">Для тех, кто хочет начать с простого и посмотреть, как пойдёт</p>
-      <a class="btn" href="https://t.me/komanda_sreda?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%C2%AB%D0%9B%D0%B8%D0%B4-%D0%BC%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%C2%BB%20%D0%B7%D0%B0%209%20900" target="_blank" rel="noopener">Выбрать</a></div>
+      <a class="btn" href="https://payform.ru/5sd3R0a/" target="_blank" rel="noopener" data-goal="oplata_9900">Оплатить 9 900 ₽</a></div>
     <div class="tar" id="t2"><div class="nm">Прогрев<span class="badge">ваш вариант</span></div><h3>Лид-магнит и воронка</h3><div class="pr">19 900 ₽</div><div class="tm">4-5 вечеров</div>
       <ul><li>всё из тарифа «Старт»</li><li>статья-прогрев, которая открывается после заявки</li><li>Telegram-бот: забирает контакт, присылает подарок и 3-5 сообщений, которые ведут к вашей услуге</li><li>в Метрике видно каждый шаг: зашли, оставили контакт, записались</li></ul>
       <p class="for">Для тех, к кому интересуются, но до записи не доходят</p>
-      <a class="btn" href="https://t.me/komanda_sreda?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%C2%AB%D0%9B%D0%B8%D0%B4-%D0%BC%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%20%D0%B8%20%D0%B2%D0%BE%D1%80%D0%BE%D0%BD%D0%BA%D0%B0%C2%BB%20%D0%B7%D0%B0%2019%20900" target="_blank" rel="noopener">Выбрать</a></div>
+      <a class="btn" href="https://payform.ru/evd3R6B/" target="_blank" rel="noopener" data-goal="oplata_19900">Оплатить 19 900 ₽</a></div>
     <div class="tar" id="t3"><div class="nm">Автомат<span class="badge">ваш вариант</span></div><h3>Лид-магнит, воронка и мини-продукт</h3><div class="pr">29 900 ₽</div><div class="tm">около недели</div>
       <ul><li>всё из тарифа «Прогрев»</li><li>страница вашего мини-продукта с оплатой</li><li>после оплаты бот сам выдаёт продукт и ведёт к основной услуге</li><li>продажи идут без вашего участия</li></ul>
       <p class="for">Для дорогих услуг, над которыми долго думают, и для тех, чьи люди уходят, не дойдя до основной услуги</p>
-      <a class="btn" href="https://t.me/komanda_sreda?text=%D0%A5%D0%BE%D1%87%D1%83%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%C2%AB%D0%9B%D0%B8%D0%B4-%D0%BC%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%2C%20%D0%B2%D0%BE%D1%80%D0%BE%D0%BD%D0%BA%D0%B0%20%D0%B8%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%C2%BB%20%D0%B7%D0%B0%2029%20900" target="_blank" rel="noopener">Выбрать</a></div>
+      <a class="btn" href="https://payform.ru/lgd3Ra5/" target="_blank" rel="noopener" data-goal="oplata_29900">Оплатить 29 900 ₽</a></div>
   </div>
 </section>
 
@@ -223,9 +257,10 @@ footer{padding:26px 0 40px;color:var(--soft);font-size:13px;text-align:center;bo
   </div>
 </section>
 
-<footer><div class="wrap">Среда продаж · Елена Курскова и Ольга Ульянова</div></footer>
+<footer data-see="dochitala"><div class="wrap">Среда продаж · Елена Курскова и Ольга Ульянова</div></footer>
 
 <script>
+window.MID=114342766;
 var EX={trevoga:['Психолог КПТ','Тест на тип тревоги','lm-proto-trevoga'],deti:['Детский психолог','Переводчик с детского','lm-proto-deti'],mak:['Психолог и таролог','Три МАК-карты','lm-proto-mak'],swim:['Тренер по плаванию','Конструктор плана','lm-proto-plavanie'],foto:['Фотограф','Нейросеть или живая съёмка','lm-proto-foto'],sovm:['Нумеролог','Совместимость по двум датам','kod-lyubvi-sovmestimost'],kodp:['Астролог','Астрокод привлекательности','kod-privlekatelnosti'],esh:['Нутрициолог','Ешь и худей','esh-i-hudey'],seiko:['Нутрициология','Подбор бадов за минуту','seiko-boeva'],rep:['Репетитор','Анкета для записи','repetitor-vinogradova'],vahta:['Найм персонала','Калькулятор заработка','vahta-podmoskovie']};
 var BY={psy:['trevoga','deti','mak','sovm'],ezo:['kodp','sovm','mak','trevoga'],body:['swim','esh','seiko','trevoga'],serv:['foto','rep','swim','esh'],oth:['vahta','rep','esh','deti']};
 var T={1:['Старт · лид-магнит','Начните с одного лид-магнита с кнопкой записи. Посмотрите, сколько людей дойдёт до результата, и решите, что дальше'],2:['Прогрев · лид-магнит и воронка','Лид-магнит забирает контакт, а бот и статья доводят человека до записи. Так вы перестанете тратить часы на бесплатные консультации'],3:['Автомат · с мини-продуктом','Между бесплатным лид-магнитом и основной услугой встаёт недорогой продукт. Человек платит, получает пользу и сам приходит за большим']};
@@ -236,7 +271,11 @@ function pick(){
  document.getElementById('rt').textContent=T[t][0];document.getElementById('rw').textContent=T[t][1];
  document.getElementById('rx').innerHTML=BY[o.s].map(function(k){return '<a href="https://kursk-24.github.io/'+EX[k][2]+'/" target="_blank" rel="noopener"><small>'+EX[k][0]+'</small>'+EX[k][1]+'</a>'}).join('');
  [1,2,3].forEach(function(n){document.getElementById('t'+n).classList.toggle('hl',n==t)});
- document.getElementById('rec').classList.add('on')}
+ document.getElementById('rec').classList.add('on');g('podbor_gotov',{tarif:t})}
+function g(n,p){try{ym(window.MID,'reachGoal',n,p||{})}catch(e){}}
+var seen={};if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){var n=e.target.dataset.see;if(e.isIntersecting&&!seen[n]){seen[n]=1;g(n)}})},{threshold:.6});document.querySelectorAll('[data-see]').forEach(function(el){io.observe(el)})}
+document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('[data-goal]');if(a)g(a.dataset.goal)},true);
+document.getElementById('rx').addEventListener('click',function(ev){if(ev.target.closest('a'))g('klik_primer')});
 </script>
 </body>
 </html>
