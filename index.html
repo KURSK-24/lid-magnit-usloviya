@@ -71,8 +71,9 @@ p+p{margin-top:12px}
 @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .rec small{color:var(--blood);letter-spacing:.07em;text-transform:uppercase;font-size:12px;font-weight:700}
 .rec h3{margin:4px 0 8px}
-.ex{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.ex a{color:var(--ink);text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 10px;font-size:14px;font-weight:600}
+.ex{display:grid;gap:8px;margin-top:10px}
+.ex a{color:var(--ink);text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;font-size:15px;font-weight:600;display:block}
+.ex a small{display:block;font-size:12px;color:var(--gold);letter-spacing:.05em;text-transform:uppercase;font-weight:700}
 .ex a:after{content:" ↗";color:var(--blood)}
 .tar{background:#221a13;border:1px solid var(--sline);border-radius:20px;padding:20px;margin-top:14px}
 .tar.hl{border-color:#FF5470;box-shadow:0 0 0 1px #FF5470}
@@ -168,7 +169,7 @@ footer{padding:26px 0 40px;color:var(--soft);font-size:13px;text-align:center;bo
     <div class="eb">Работает без вас</div>
     <h2>Прогревает сам и <em>снимает бесплатные консультации</em></h2>
     <p>Бесплатный разбор забирает два часа вашего вечера и часто заканчивается «спасибо, подумаю». Лид-магнит отдаёт человеку пользу сам, а к вам приходят те, кто уже понял, зачем вы им нужны</p>
-    <div class="case"><span class="num">18 000 ₽</span><p style="margin-top:6px">за две недели на автомате принесла связка «бесплатный лид-магнит и мини-продукт по подписке за 250-350 ₽»</p></div>
+    <div class="case"><div class="eb" style="margin-bottom:8px">Кейс · таро</div><p>Мини-продукт по подписке в Telegram-боте. Первый вопрос человек задаёт бесплатно и получает расклад. Дальше может купить ещё один вопрос, пакет из трёх вопросов или подписку на месяц</p><p style="margin-top:14px;color:#cbbd9f">За первые две недели эксперт получил</p><span class="num">18 000 ₽</span><p style="margin-top:4px;color:#cbbd9f">на автомате, без своего участия</p></div>
   </div>
 </section>
 
@@ -223,15 +224,15 @@ footer{padding:26px 0 40px;color:var(--soft);font-size:13px;text-align:center;bo
 <footer><div class="wrap">Среда продаж · Елена Курскова и Ольга Ульянова</div></footer>
 
 <script>
-var EX={trevoga:['Тест на тип тревоги','https://kursk-24.github.io/lm-proto-trevoga/'],deti:['Переводчик с детского','https://kursk-24.github.io/lm-proto-deti/'],mak:['Три МАК-карты','https://kursk-24.github.io/lm-proto-mak/'],swim:['Конструктор плана','https://kursk-24.github.io/lm-proto-plavanie/'],foto:['Тест для фотографа','https://kursk-24.github.io/lm-proto-foto/'],sovm:['Совместимость по датам','https://kursk-24.github.io/kod-lyubvi-sovmestimost/'],vahta:['Калькулятор заработка','https://kursk-24.github.io/vahta-podmoskovie/']};
-var BY={psy:['trevoga','deti','mak'],ezo:['mak','sovm'],body:['swim','trevoga'],serv:['foto','swim'],oth:['vahta','swim','deti']};
+var EX={trevoga:['Психолог КПТ','Тест на тип тревоги','lm-proto-trevoga'],deti:['Детский психолог','Переводчик с детского','lm-proto-deti'],mak:['Психолог и таролог','Три МАК-карты','lm-proto-mak'],swim:['Тренер по плаванию','Конструктор плана','lm-proto-plavanie'],foto:['Фотограф','Нейросеть или живая съёмка','lm-proto-foto'],sovm:['Нумеролог','Совместимость по двум датам','kod-lyubvi-sovmestimost'],kodp:['Астролог','Астрокод привлекательности','kod-privlekatelnosti'],esh:['Нутрициолог','Ешь и худей','esh-i-hudey'],seiko:['Нутрициология','Подбор бадов за минуту','seiko-boeva'],rep:['Репетитор','Анкета для записи','repetitor-vinogradova'],vahta:['Найм персонала','Калькулятор заработка','vahta-podmoskovie']};
+var BY={psy:['trevoga','deti','mak','sovm'],ezo:['kodp','sovm','mak','trevoga'],body:['swim','esh','seiko','trevoga'],serv:['foto','rep','swim','esh'],oth:['vahta','rep','esh','deti']};
 var T={1:['Старт · лид-магнит','Начните с одного лид-магнита с кнопкой записи. Посмотрите, сколько людей дойдёт до результата, и решите, что дальше'],2:['Прогрев · лид-магнит и воронка','Лид-магнит забирает контакт, а бот и статья доводят человека до записи. Так вы перестанете тратить часы на бесплатные консультации'],3:['Автомат · с мини-продуктом','Между бесплатным лид-магнитом и основной услугой встаёт недорогой продукт. Человек платит, получает пользу и сам приходит за большим']};
 var o={};
 document.querySelectorAll('.chips').forEach(function(c){c.querySelectorAll('button').forEach(function(b){b.onclick=function(){o[c.dataset.k]=b.dataset.v;c.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x==b)});document.getElementById('go').disabled=Object.keys(o).length<3}})});
 function pick(){
  var t=o.g=='auto'||o.p=='3'?3:(o.g=='free'||o.p=='2'?2:1);
  document.getElementById('rt').textContent=T[t][0];document.getElementById('rw').textContent=T[t][1];
- document.getElementById('rx').innerHTML=BY[o.s].map(function(k){return '<a href="'+EX[k][1]+'" target="_blank" rel="noopener">'+EX[k][0]+'</a>'}).join('');
+ document.getElementById('rx').innerHTML=BY[o.s].map(function(k){return '<a href="https://kursk-24.github.io/'+EX[k][2]+'/" target="_blank" rel="noopener"><small>'+EX[k][0]+'</small>'+EX[k][1]+'</a>'}).join('');
  [1,2,3].forEach(function(n){document.getElementById('t'+n).classList.toggle('hl',n==t)});
  document.getElementById('rec').classList.add('on')}
 </script>
